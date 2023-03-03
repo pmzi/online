@@ -60,6 +60,7 @@ function _sendSelection(edit, builder) {
 
 	var selection = startPos + ';' + endPos + ';' + startPara + ';' + endPara;
 	builder.callback('edit', 'textselection', edit, selection, builder);
+	builder.map.fire('postMessage', {msgId: 'TextSelection_Changed', args: {startPost, endPos, startPara, endPara} });
 }
 
 function _multiLineEditControl(parentContainer, data, builder, callback) {
